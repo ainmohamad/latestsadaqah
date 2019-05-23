@@ -2,10 +2,13 @@ import React from 'react';
 import { View, ScrollView,  StyleSheet, Text } from 'react-native';
 import { Container, Header, Content, Form, Item, Picker, Label, Input, Textarea, Button } from 'native-base';
 
-export default class req extends React.Component {
-  /*static navigationOptions = {
-    title: 'Donation form',
-  };*/
+  
+
+
+export default class signup extends React.Component {
+  static navigationOptions = {
+    title: 'SignUp',
+  };
   constructor(props){
   super(props);
   this.state = {
@@ -20,40 +23,29 @@ export default class req extends React.Component {
 
   render() {
     return (
-        
       <View>
           <Form>
-          <Item Picker>
-        <Label>Request type:</Label>
-        <Picker
-        selectedValue={this.state.type}
-        onValueChange={this.onValueChange2.bind(this)}
-        >
-        <Picker.Item label="Clothes" value="cloth" />
-        <Picker.Item label="Book" value="book" />
-        <Picker.Item label="Education" value="education" />
-        </Picker>
-        </Item>
-
+          
         <Item floatingLabel>
-        <Label>Enter amount</Label>
+        <Label>Full name</Label>
         <Input />
         </Item>
 
         <Item floatingLabel>
-        <Label>Details of the request</Label>
+        <Label>Email</Label>
         <Input />
         </Item>
 
         <Item floatingLabel >
-        <Label>Contact details</Label>
+        <Label>Password</Label>
         <Input />
         </Item>
+
         </Form>
 
         <View style={styles.button}>
-            <Button block light onPress={(()=>this.props.navigation.navigate('home'))} >
-            <Text>Submit request</Text>
+            <Button block light onPress={(()=>this.props.navigation.navigate('signin'))}>
+            <Text>Sign Up</Text>
             </Button>
         </View>
 
@@ -69,7 +61,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   button: {
-      padding: 80,
-  }
-  
+    padding: 80,
+},
 });

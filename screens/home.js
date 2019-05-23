@@ -16,9 +16,8 @@ import about from '../screens/about';
 
 const AppStackNavigator = createStackNavigator({
 about: about,
-
 })
-export default class HomeScreen extends React.Component {
+export default class home extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -50,10 +49,29 @@ export default class HomeScreen extends React.Component {
 
             <View style={styles.button}>
             <Button block light  onPress={(()=>this.props.navigation.navigate('dform'))}>
-            <Text>View items</Text>
+            <Text>Donate</Text>
+            </Button>
+            </View>
+
+            <View style={styles.button}>
+            <Button block light  onPress={(()=>this.props.navigation.navigate('req'))}>
+            <Text>Request</Text>
+            </Button>
+            </View>
+
+            <View style={styles.button}>
+            <Button block light  onPress={(()=>this.props.navigation.navigate('dform'))}>
+            <Text>View request/donate items</Text>
+            </Button>
+            </View>
+
+            <View style={styles.button}>
+            <Button block light  onPress={(()=>this.props.navigation.navigate('HomeScreen'))}>
+            <Text>Sign Out</Text>
             </Button>
             </View>
          
+
         </ScrollView>
 
       

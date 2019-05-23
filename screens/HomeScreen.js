@@ -5,14 +5,19 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  Button,
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { createStackNavigator} from 'react-navigation';
 
-import { MonoText } from '../components/StyledText';
+import { Container, Content, Button } from 'native-base';
+import signup from '../screens/signup';
+import signin from '../screens/signin';
 
+const AppStackNavigator = createStackNavigator({
+signup: signup,
+signin: signin,
+})
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -23,21 +28,35 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-           
+            <Image
+              source={
+                __DEV__
+                  ? require('../assets/images/h.png')
+                  : require('../assets/images/h.png')
+              }
+              style={styles.welcomeImage}
+            />
           </View>
 
           <View style={styles.getStartedContainer}>
-            <Button title="Sign up" type="outline" onPress={(()=>this.props.navigation.navigate('signupForm'))} />
-            <Button title="Login" type="outline" onPress={(()=>this.props.navigation.navigate('Login'))}/>
-
-            
+            <Text style={styles.getStartedText}>Welcome to E-Sadaqah!</Text>  
 
           </View>
+          <View style={styles.button}>
+          <Button block light  onPress={(()=>this.props.navigation.navigate('signup'))}>
+            <Text>Sign Up</Text>
+            </Button>
+            </View>
 
-          
+            <View style={styles.button}>
+            <Button block light  onPress={(()=>this.props.navigation.navigate('signin'))}>
+            <Text>Log In</Text>
+            </Button>
+            </View>
+         
         </ScrollView>
 
-        
+      
       </View>
     );
   }
@@ -52,7 +71,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
+    alignContent: 'center',
+      },
+      button: {
+        padding: 12,
+      },
   developmentModeText: {
     marginBottom: 20,
     color: 'rgba(0,0,0,0.4)',

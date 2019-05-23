@@ -10,16 +10,21 @@ import home from '../screens/home.js';
 import dform from '../screens/dform.js';
 import about from '../screens/about.js';
 import req from '../screens/req.js';
+import signup from '../screens/signup.js';
+import signin from '../screens/signin.js';
 
 
 const homepage = createStackNavigator({
   home: home,
   about: about,
+  req: req,
+  dform: dform,
+  HomeScreen: HomeScreen,
 });
 
 homepage.navigationOptions = {
-  tabBarLabel: 'Home2',
-  tabBarIcon: ({ focused }) => (
+  tabBarLabel: ' ',
+ /* tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
@@ -28,17 +33,19 @@ homepage.navigationOptions = {
           : 'md-information-circle'
       }
     />
-  ),
+  ),*/
 };
 
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  signup: signup,
+  signin: signin,
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
+ tabBarLabel: ' ',
+/* tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
@@ -47,10 +54,10 @@ HomeStack.navigationOptions = {
           : 'md-information-circle'
       }
     />
-  ),
+  ),*/
 };
 
-const LinksStack = createStackNavigator({
+/*const LinksStack = createStackNavigator({
   Links: LinksScreen,
   dform: dform,
 });
@@ -78,11 +85,11 @@ SettingsStack.navigationOptions = {
       name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
     />
   ),
-};
+};*/
 
 export default createBottomTabNavigator({
   HomeStack,
   homepage,
-  LinksStack,
-  SettingsStack,
+ // LinksStack,
+ // SettingsStack,
 });

@@ -2,9 +2,9 @@ import React from 'react';
 import { View, ScrollView,  StyleSheet, Text } from 'react-native';
 import { Container, Header, Content, Form, Item, Picker, Label, Input, Textarea, Button } from 'native-base';
 
-export default class dform extends React.Component {
+export default class signin extends React.Component {
   static navigationOptions = {
-    title: 'Donation form',
+    title: 'Sign In',
   };
   constructor(props){
   super(props);
@@ -22,38 +22,22 @@ export default class dform extends React.Component {
     return (
       <View>
           <Form>
-          <Item Picker>
-        <Label>Select donation type:</Label>
-        <Picker
-        selectedValue={this.state.type}
-        onValueChange={this.onValueChange2.bind(this)}
-        >
-        <Picker.Item label="Clothes" value="cloth" />
-        <Picker.Item label="Book" value="book" />
-        <Picker.Item label="Education" value="education" />
-        </Picker>
-        </Item>
 
         <Item floatingLabel>
-        <Label>Enter amount</Label>
-        <Input />
-        </Item>
-
-        <Item floatingLabel>
-        <Label>Details of the donation</Label>
+        <Label>Email</Label>
         <Input />
         </Item>
 
         <Item floatingLabel >
-        <Label>Contact details</Label>
+        <Label>Password</Label>
         <Input />
         </Item>
 
         </Form>
 
-        <View style={styles.button}>
-            <Button block light onPress={(()=>this.props.navigation.navigate('home'))} >
-            <Text>Submit donation</Text>
+        <View style={styles.button} >
+            <Button block light onPress={(()=>this.props.navigation.navigate('home'))}>
+            <Text>Log In</Text>
             </Button>
         </View>
 
